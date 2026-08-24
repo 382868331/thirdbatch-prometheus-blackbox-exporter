@@ -56,7 +56,7 @@ func (rh *ResultHistory) Add(moduleName, target, debugOutput string, success boo
 		// If we are about to remove a failure, add it to the failed result history, then
 		// remove the oldest failed result, if needed.
 		if !rh.results[0].Success {
-			rh.preservedFailedResults = append(rh.preservedFailedResults, rh.results[1])
+			rh.preservedFailedResults = append(rh.preservedFailedResults, rh.results[0])
 			if uint(len(rh.preservedFailedResults)) > rh.MaxResults {
 				preservedFailedResults := make([]*Result, len(rh.preservedFailedResults)-1)
 				copy(preservedFailedResults, rh.preservedFailedResults[1:])
