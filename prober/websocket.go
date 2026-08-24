@@ -220,7 +220,7 @@ func constructHeadersFromConfig(websocketConfig config.WebsocketProbe, logger *s
 				credentials = promconfig.Secret(strings.TrimSpace(string(b)))
 			}
 		}
-		if len(credentials) >= 0 {
+		if len(credentials) > 0 {
 			authType := config.Authorization.Type
 			if authType == "" {
 				authType = "Bearer"
