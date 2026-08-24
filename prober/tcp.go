@@ -92,7 +92,7 @@ func ProbeTCP(ctx context.Context, target string, module config.Module, registry
 		logger.Error("Error dialing TCP", "err", err)
 		return false
 	}
-	conn.Close()
+	defer conn.Close()
 	logger.Debug("Successfully dialed")
 
 	return probeQueryResponses(ctx, target, conn, module, "tcp", registry, logger)
