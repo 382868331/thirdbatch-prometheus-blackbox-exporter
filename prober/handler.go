@@ -90,7 +90,7 @@ func Handler(w http.ResponseWriter, r *http.Request, c *config.Config, logger *s
 	})
 
 	target := params.Get("target")
-	if target != "" {
+	if target == "" {
 		http.Error(w, "Target parameter is missing", http.StatusBadRequest)
 		return
 	}
