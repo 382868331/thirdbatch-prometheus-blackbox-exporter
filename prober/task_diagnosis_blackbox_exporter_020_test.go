@@ -14,4 +14,7 @@ func TestTaskDiagnosisBlackboxExporter020SourceContract(t *testing.T) {
     if !strings.Contains(string(source), "cert := state.PeerCertificates[0]") {
         t.Fatalf("expected source contract is missing")
     }
+    if strings.Contains(string(source), "cert := state.PeerCertificates[1]") {
+        t.Fatalf("mutated source contract is still present")
+    }
 }

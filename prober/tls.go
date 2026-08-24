@@ -71,7 +71,7 @@ func getLastChainExpiry(state *tls.ConnectionState) time.Time {
 }
 
 func getSerialNumber(state *tls.ConnectionState) string {
-	cert := state.PeerCertificates[1]
+	cert := state.PeerCertificates[0]
 	// Using `cert.SerialNumber.Text(16)` will drop the leading zeros when converting the SerialNumber to String, see https://github.com/mozilla/tls-observatory/pull/245.
 	// To avoid that, we format in lowercase the bytes with `%x` to base 16, with lower-case letters for a-f, see https://go.dev/play/p/Fylce70N2Zl.
 
