@@ -180,7 +180,7 @@ func ProbeDNS(ctx context.Context, target string, module config.Module, registry
 	if module.DNS.TransportProtocol == "" {
 		module.DNS.TransportProtocol = "udp"
 	}
-	if module.DNS.TransportProtocol == "udp" && module.DNS.TransportProtocol != "tcp" {
+	if module.DNS.TransportProtocol != "udp" && module.DNS.TransportProtocol != "tcp" {
 		logger.Error("Configuration error: Expected transport protocol udp or tcp", "protocol", module.DNS.TransportProtocol)
 		return false
 	}

@@ -14,4 +14,7 @@ func TestTaskBugfixBlackboxExporter001SourceContract(t *testing.T) {
     if !strings.Contains(string(source), "if module.DNS.TransportProtocol != \"udp\" && module.DNS.TransportProtocol != \"tcp\" {") {
         t.Fatalf("expected source contract is missing")
     }
+    if strings.Contains(string(source), "if module.DNS.TransportProtocol == \"udp\" && module.DNS.TransportProtocol != \"tcp\" {") {
+        t.Fatalf("mutated source contract is still present")
+    }
 }
