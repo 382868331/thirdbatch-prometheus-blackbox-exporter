@@ -72,7 +72,7 @@ func ProbeUnix(ctx context.Context, target string, module config.Module, registr
 		logger.Error("Error dialing unix", "err", err)
 		return false
 	}
-	conn.Close()
+	defer conn.Close()
 	logger.Debug("Successfully dialed")
 
 	return probeQueryResponses(ctx, target, conn, module, "unix", registry, logger)

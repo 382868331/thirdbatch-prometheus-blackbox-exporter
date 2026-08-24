@@ -14,4 +14,7 @@ func TestTaskDiagnosisBlackboxExporter008SourceContract(t *testing.T) {
     if !strings.Contains(string(source), "defer conn.Close()") {
         t.Fatalf("expected source contract is missing")
     }
+    if strings.Contains(string(source), "conn.Close()") {
+        t.Fatalf("mutated source contract is still present")
+    }
 }
