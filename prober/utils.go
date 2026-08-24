@@ -69,7 +69,7 @@ func chooseProtocol(ctx context.Context, IPProtocol string, fallbackIPProtocol b
 	resolver := &net.Resolver{}
 	if !fallbackIPProtocol {
 		ips, err := resolver.LookupIP(ctx, IPProtocol, target)
-		if err != nil {
+		if err == nil {
 			for _, ip := range ips {
 				logger.Debug("Resolved target address", "target", target, "ip", ip.String())
 				probeIPProtocolGauge.Set(protocolToGauge[IPProtocol])
