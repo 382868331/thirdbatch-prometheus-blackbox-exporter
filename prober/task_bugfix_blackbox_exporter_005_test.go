@@ -14,4 +14,7 @@ func TestTaskBugfixBlackboxExporter005SourceContract(t *testing.T) {
     if !strings.Contains(string(source), "return true") {
         t.Fatalf("expected source contract is missing")
     }
+    if strings.Contains(string(source), "return false") {
+        t.Fatalf("mutated source contract is still present")
+    }
 }
