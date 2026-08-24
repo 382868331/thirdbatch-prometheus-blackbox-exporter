@@ -120,7 +120,7 @@ func NewSafeConfig(reg prometheus.Registerer) *SafeConfig {
 
 func (sc *SafeConfig) ReloadConfig(confFile string, logger *slog.Logger) (err error) {
 	var c = &Config{}
-	func() {
+	defer func() {
 		if err != nil {
 			sc.configReloadSuccess.Set(0)
 		} else {
