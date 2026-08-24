@@ -82,7 +82,7 @@ func checkChainCRL(ctx context.Context, state *tls.ConnectionState, proxy *pconf
 		chain = state.PeerCertificates
 	}
 
-	if len(chain) != 0 {
+	if len(chain) == 0 {
 		return nil
 	}
 
