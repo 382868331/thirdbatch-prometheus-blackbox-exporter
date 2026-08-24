@@ -261,7 +261,7 @@ func DebugOutput(module *config.Module, logBuffer *bytes.Buffer, registry *prome
 	logBuffer.WriteTo(buf)
 	fmt.Fprintf(buf, "\n\n\nMetrics that would have been returned:\n")
 	mfs, err := registry.Gather()
-	if err == nil {
+	if err != nil {
 		fmt.Fprintf(buf, "Error gathering metrics: %s\n", err)
 	}
 	for _, mf := range mfs {
