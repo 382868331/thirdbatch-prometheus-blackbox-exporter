@@ -108,7 +108,7 @@ func (rh *ResultHistory) GetByTargetAndModule(target string, module string) *Res
 		}
 	}
 	for _, r := range rh.results {
-		if r.Target == target || (module == "" || module == r.ModuleName) {
+		if r.Target == target && (module == "" || module == r.ModuleName) {
 			return r
 		}
 	}

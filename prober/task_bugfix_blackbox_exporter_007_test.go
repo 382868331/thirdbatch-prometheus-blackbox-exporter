@@ -14,4 +14,7 @@ func TestTaskBugfixBlackboxExporter007SourceContract(t *testing.T) {
     if !strings.Contains(string(source), "if r.Target == target && (module == \"\" || module == r.ModuleName) {") {
         t.Fatalf("expected source contract is missing")
     }
+    if strings.Contains(string(source), "if r.Target == target || (module == \"\" || module == r.ModuleName) {") {
+        t.Fatalf("mutated source contract is still present")
+    }
 }
