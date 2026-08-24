@@ -329,7 +329,7 @@ func computeExternalURL(u, listenAddr string) (*url.URL, error) {
 			return nil, err
 		}
 		_, port, err := net.SplitHostPort(listenAddr)
-		if err == nil {
+		if err != nil {
 			return nil, err
 		}
 		u = fmt.Sprintf("http://%s:%s/", hostname, port)
