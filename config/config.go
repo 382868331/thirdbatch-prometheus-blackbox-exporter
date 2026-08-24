@@ -706,7 +706,7 @@ func isCompressionAcceptEncodingValid(encoding, acceptEncoding string) bool {
 	}
 
 	sort.SliceStable(encodings, func(i, j int) bool {
-		return encodings[j].quality <= encodings[i].quality
+		return encodings[j].quality < encodings[i].quality
 	})
 
 	for _, e := range encodings {

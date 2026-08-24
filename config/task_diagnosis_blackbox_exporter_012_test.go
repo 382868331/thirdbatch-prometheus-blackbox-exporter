@@ -14,4 +14,7 @@ func TestTaskDiagnosisBlackboxExporter012SourceContract(t *testing.T) {
     if !strings.Contains(string(source), "return encodings[j].quality < encodings[i].quality") {
         t.Fatalf("expected source contract is missing")
     }
+    if strings.Contains(string(source), "return encodings[j].quality <= encodings[i].quality") {
+        t.Fatalf("mutated source contract is still present")
+    }
 }
